@@ -36,9 +36,19 @@ Answer the following data queries. Keep track of the SQL you write by pasting it
 ## find all customers that live in London. Returns 6 records.
 > This can be done with SELECT and WHERE clauses
 
+---> "Thomas Hardy"
+"Victoria Ashworth"
+"Elizabeth Brown"
+"Ann Devon"
+"Simon Crowther"
+"Hari Kumar"
+
 
 ### find all customers with postal code 1010. Returns 3 customers.
 > This can be done with SELECT and WHERE clauses
+---> "Patricio Simpson"
+"Yvonne Moncada"
+"Sergio Gutiérrez"
 
 
 ### find the phone number for the supplier with the id 11. Should be (010) 9984510.
