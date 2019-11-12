@@ -33,29 +33,51 @@ clone https://github.com/pthom/northwind_psql.git
 Answer the following data queries. Keep track of the SQL you write by pasting it into this document under its appropriate header below. You will be submitting that through the regular fork, change, pull process.
 
 
-### find all customers that live in London. Returns 6 records.
+## find all customers that live in London. Returns 6 records.
 > This can be done with SELECT and WHERE clauses
+
+---> "Thomas Hardy"
+"Victoria Ashworth"
+"Elizabeth Brown"
+"Ann Devon"
+"Simon Crowther"
+"Hari Kumar"
 
 
 ### find all customers with postal code 1010. Returns 3 customers.
 > This can be done with SELECT and WHERE clauses
+---> "Patricio Simpson"
+"Yvonne Moncada"
+"Sergio Gutiérrez"
 
 
 ### find the phone number for the supplier with the id 11. Should be (010) 9984510.
 > This can be done with SELECT and WHERE clauses
+---> SELECT phone
+     FROM suppliers
+     WHERE supplier_id = '11'
 
 
 ### list orders descending by the order date. The order with date 1998-05-06 should be at the top.
 > This can be done with SELECT, WHERE, and ORDER BY clauses
+---> SELECT order_date
+     FROM orders
+     ORDER BY order_date DESC
 
 
 ### find all suppliers who have names longer than 20 characters. You can use `length(company_name)` to get the length of the name. Returns 11 records.
 > This can be done with SELECT and WHERE clauses
+---> SELECT company_name
+     FROM suppliers
+     WHERE length(company_name) > 20
+
 
 
 ### find all customers that include the word 'MARKET' in the contact title. Should return 19 records.
 > This can be done with SELECT and a WHERE clause using the LIKE keyword
-
+--->	SELECT contact_tiel
+	FROM customers
+	WHERE upper(contact_title) LIKE '%MARKET%'
 > Don't forget the wildcard '%' symbols at the beginning and end of your substring to denote it can appear anywhere in the string in question
 
 > Remember to convert your contact title to all upper case for case insenstive comparing so upper(contact_title)
@@ -70,10 +92,13 @@ Answer the following data queries. Keep track of the SQL you write by pasting it
 * the postal code is '111'
 * the country is 'Middle Earth'
 > This can be done with the INSERT INTO clause
+---> INSERT INTO customers(customer_id, company_name, contact_name, address, city, postal_code, country)
+     VALUES('SHIRE', 'THE Shire', 'Bilbo Baggins', '1 Hobbit-Hole', 'Bag End', 111, 'Middle Earth')
 
 
 ### update _Bilbo Baggins_ record so that the postal code changes to _"11122"_.
 > This can be done with UPDATE and WHERE clauses
+---> UPDATE 
 
 
 ### list orders grouped by customer showing the number of orders per customer. _Rattlesnake Canyon Grocery_ should have 18 orders.
@@ -107,6 +132,7 @@ Take the following data and normalize it into a 3NF database.
 
 ### delete all customers that have no orders. Should delete 17 (or 18 if you haven't deleted the record added) records.
 > This is done with a DELETE query
+--->	D
 
 > In the WHERE clause, you can provide another list with an IN keyword this list can be the result of another SELECT query. Write a query to return a list of CustomerIDs that meet the criteria above. Pass that to the IN keyword of the WHERE clause as the list of IDs to be deleted
  
